@@ -22,4 +22,7 @@ app.service('BankService',["$http","base_url",function($http,base_url){
     this.ListerBanques=function(token){
         return $http.post(base_url+"BanqueAdmin/ListeBanque",{Token :token.chain});
     };
+    this.getBanque = function(token,id){
+        return $http.post(base_url+"BanqueAdmin/Banque",{Token :token.chain, idB : id});
+    }
 }]);

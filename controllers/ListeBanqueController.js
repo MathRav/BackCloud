@@ -7,7 +7,7 @@ app.controller('ListeBanqueController',["$scope","BankService","token","$cookies
         $scope.liste=reponse.data.body;
     });
     $scope.modifier = function(index){
-        $cookies.putObject('bank',$scope.liste[index]);
-        $window.location.href = "modificationBanque.html";
+        //$cookies.putObject('bank',$scope.liste[index]);
+        $window.location.href = "modificationBanque.html?idB="+$scope.liste[index].id;
     }
 }]);

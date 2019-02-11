@@ -1,4 +1,4 @@
-﻿var app = angular.module('myApp',['ngCookies']);
+var app = angular.module('myApp',['ngCookies']);
 app.constant('base_url','https://stormy-bastion-67986.herokuapp.com/');
 app.service('token',['$cookies','$window',function($cookies,$window){
     this.checkToken= function(){
@@ -22,6 +22,16 @@ app.service('client',['$http','base_url','token',function($http,base_url,token){
                 return null;
             }
         });
+    }
+    this.findGetParameter = function(parameterName) {
+        var result = null,
+            tmp = [];
+        var items = location.search.substr(1).split("&");
+        for (var index = 0; index < items.length; index++) {
+            tmp = items[index].split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        }
+        return result;
     }
 }]);
 app.config(['$qProvider', function ($qProvider) {
