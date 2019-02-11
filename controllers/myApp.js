@@ -1,5 +1,5 @@
-var app = angular.module('myApp',['ngCookies']);
-app.constant('base_url','https://­stormy-bastion-67986.­herokuapp.com/');
+﻿var app = angular.module('myApp',['ngCookies']);
+app.constant('base_url','https://stormy-bastion-67986.herokuapp.com/');
 app.service('token',['$cookies','$window',function($cookies,$window){
     this.checkToken= function(){
         if(!$cookies.getObject('token')){
