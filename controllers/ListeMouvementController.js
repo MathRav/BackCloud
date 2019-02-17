@@ -3,8 +3,7 @@ app.controller('ListeMouvementController',["$scope","MouvementService","token","
     var token=token.getToken();
     $scope.liste=null;
     MouvementService.ListerMouvementNC(token).then(function(response){
-        console.log(response.data.body);
-        $scope.liste=response.data.body;
+        $scope.liste=response.data.data;
     });
     $scope.confirm = function(index){
         var idM = $scope.liste[index].id;

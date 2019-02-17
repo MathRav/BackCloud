@@ -2,9 +2,9 @@ app.controller('ListeBanqueController',["$scope","BankService","token","$cookies
     token.checkToken();
     var token=token.getToken();
     $scope.liste=null;
-    BankService.ListerBanques(token).then(function(reponse){
-        console.log(reponse);
-        $scope.liste=reponse.data.body;
+    BankService.ListerBanques(token).then(function(response){
+        console.log(response);
+        $scope.liste=response.data.data;
     });
     $scope.modifier = function(index){
         //$cookies.putObject('bank',$scope.liste[index]);

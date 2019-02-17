@@ -5,7 +5,7 @@ app.controller('ModifCtrl',["$scope","BankService","token","$cookies","client",f
     var idB= client.findGetParameter('idB');
     BankService.getBanque(token,idB).then(function(response){
         console.log(response.data);
-        $scope.bank = response.data.body;
+        $scope.bank = response.data.data;
     });
     $scope.modifBank = function(){
         BankService.modifBanque(token.chain,$scope.bank.id,$scope.bank.nom,$scope.bank.configuration,$scope.bank.devise).then(function(response){

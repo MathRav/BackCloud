@@ -15,7 +15,7 @@ app.controller('AccueilController',["$scope","BankService","token",function($sco
         console.log(configs);
         BankService.InsertBanque(token.chain,$scope.name,configs,$scope.devise).then(function(response){
             console.log(response);
-            $scope.message=response.body.message;
+            $scope.message=response.data.message;
         });
     }
 }])
